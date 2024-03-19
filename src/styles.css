@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+    background-color: #146ff7 !important;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

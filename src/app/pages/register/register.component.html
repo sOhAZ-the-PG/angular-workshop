@@ -1,0 +1,48 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <img
+      id="profile-img"
+      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+      class="profile-img-card"
+    />
+    <form name="form" novalidate (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          required
+          minlength="3"
+          maxlength="20"
+          [(ngModel)]="form.username"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          required
+          email
+          [(ngModel)]="form.email"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          required
+          minlength="6"
+          [(ngModel)]="form.password"
+        />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block align-right">Sign Up</button>
+      </div>
+    </form>
+  </div>
+</div>

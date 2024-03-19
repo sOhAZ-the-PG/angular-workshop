@@ -5,7 +5,12 @@
       src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
       class="profile-img-card"
     />
-    <form name="form" novalidate #f="ngForm" (ngSubmit)="onSubmit()">
+    <form
+      name="form"
+      novalidate
+      #f="ngForm"
+      (ngSubmit)="f.form.valid && onSubmit()"
+    >
       <div class="form-group">
         <label for="username">Username</label>
         <input

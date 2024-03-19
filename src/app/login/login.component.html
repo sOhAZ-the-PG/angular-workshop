@@ -1,18 +1,70 @@
 <div class="col-md-12">
-    <div class="card card-container">
-        <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
-        <form name="form" novalidate>
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" name="username" required />
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" name="password" required minlength="6" />
-            </div>
-            <div class="form-group">
-                <button class="btn btn-primary btn-block align-right">Login</button>
-            </div>
-        </form>
-    </div>
+  <div class="card card-container">
+    <img
+      id="profile-img"
+      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+      class="profile-img-card"
+    />
+    <form
+      name="form"
+      novalidate
+      #f="ngForm"
+      (ngSubmit)="f.form.valid && onSubmit()"
+    >
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          id="username"
+          class="form-control"
+          name="username"
+          required
+          minlength="3"
+          maxlength="20"
+          autocomplete="off"
+          [(ngModel)]="form.username"
+          #username="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && username.invalid }"
+        />
+        <app-validation-error
+          class="invalid-feedback"
+          [control]="username"
+          [messages]="{
+            required: 'Username is required',
+            minlength: 'Username must be at least 3 characters',
+            maxlength: 'Username must be at most 20 characters'
+          }"
+          [submitted]="f.submitted"
+        >
+        </app-validation-error>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          id="email"
+          type="email"
+          class="form-control"
+          name="password"
+          required
+          autocomplete="off"
+          [(ngModel)]="form.email"
+          #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.invalid }"
+        />
+        <app-validation-error
+          class="invalid-feedback"
+          [control]="password"
+          [messages]="{
+            required: 'Password is required',
+            minlength: 'Password must be at least 8 characters',
+            maxlength: 'Password must be at most 16 characters'
+          }"
+          [submitted]="f.submitted"
+        >
+        </app-validation-error>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block align-right">Login</button>
+      </div>
+    </form>
+  </div>
 </div>

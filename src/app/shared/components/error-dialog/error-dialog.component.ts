@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import {
   MatDialog,
   MatDialogRef,
@@ -6,6 +6,7 @@ import {
   MatDialogClose,
   MatDialogTitle,
   MatDialogContent,
+  MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -23,5 +24,5 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './error-dialog.component.css',
 })
 export class ErrorDialogComponent {
-  constructor(public dialog: MatDialog) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { message: string }) {}
 }

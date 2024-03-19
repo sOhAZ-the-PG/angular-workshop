@@ -24,4 +24,12 @@ export class AuthService {
       httpOptions
     );
   }
+
+  login(username: string, password: string): Observable<any> {
+    return this.client.post(
+      AUTH_API + '/auth/login',
+      { username, password },
+      httpOptions
+    );
+  }
 }
